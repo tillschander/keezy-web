@@ -52,9 +52,18 @@ $('.pad').on(touchstartOrMousedown, function() {
 });
 
 $('html').on(touchendOrMouseup, function() {
-    $('.pad').removeClass('pressed');
+    $('.pressed').removeClass('pressed');
 });
 
 $('.circle-wrap').on(touchstartOrMousedown, function() {
     $(this).toggleClass('active');
+});
+
+$('.menu .circle').on(touchstartOrMousedown, function() {
+    $(this).addClass('pressed active');
+    $('.overlay.' + $(this).attr('data-overlay')).addClass('active');
+});
+
+$('.close').on(touchstartOrMousedown, function() {
+    $('.overlay').removeClass('active');
 });

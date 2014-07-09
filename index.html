@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <title>Keezy Web</title>
+    <link href='http://fonts.googleapis.com/css?family=Asap:700,400' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -21,13 +22,27 @@
     <div class="circle-wrap">
         <div class="circle main"></div>
         <div class="menu">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
+            <div class="circle add"></div>
+            <div class="circle delete"></div>
+            <div class="circle settings" data-overlay="settings"></div>
+            <div class="circle boards" data-overlay="boards"></div>
+            <div class="circle back disabled"></div>
         </div>
     </div>
+</div>
+<div class="overlay settings">
+    <h3>Settings <i class="close"></i></h3>
+    <a class="button" href="mailto:keezy@elepath.com">Email team keezy</a>
+    <a class="button" href="https://twitter.com/Keezy">Follow keezy on twitter</a>
+</div>
+<div class="overlay boards">
+    <h3>Boards <i class="close"></i></h3>
+    <ul>
+        <li class="active">
+            <div class="name">Default</div>
+            <div class="author">Keezy Team</div>
+        </li>
+    </ul>
 </div>
 
 <script src="js/jquery-2.1.1.js"></script>

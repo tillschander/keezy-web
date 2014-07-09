@@ -10,6 +10,7 @@ html {
 
 body {
     background: black;
+    overflow: hidden;
 }
 
 .board {
@@ -29,7 +30,6 @@ body {
     transform: scale(0.75);
 }
 
-
 .pad:nth-child(1) { background-color: #ff4621; }
 .pad:nth-child(2) { background-color: #fed24d; }
 .pad:nth-child(3) { background-color: #01ffb8; }
@@ -48,7 +48,12 @@ body {
     top: 50%;
     width: 24%;
     z-index: 10;
-    transition: all 300ms ease-out;
+    /*transition: all 300ms ease-in-out;*/
+    
+    
+    animation-duration: 600ms;
+    animation-fill-mode: both;
+    animation-timing-function: ease-out; 
 }
 
 .circle-wrap:after {
@@ -61,39 +66,69 @@ body {
     transform: scale(0);
 }
 
+@keyframes rotateIn { 
+    0% {
+        transform: rotate(-90deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    } 
+    100% { 
+        transform: rotate(0deg);
+    } 
+}
+
+.circle-wrap.active {
+    animation-name: rotateIn; 
+}
+
 .circle {
-    background: #000000;
     border-radius: 100%;
     bottom: 0;
     left: 0;
-    opacity: 1;
     position: absolute;
     right: 0;
     top: 0;
 }
 
-.circle {
+.main.circle {
+    background: #000000;
+    transition: transform 500ms ease-in-out;
+}
+
+.active .main.circle {
+    transform: scale(100);
+    opacity: 0.9;
+}
+
+.menu .circle {
+    opacity: 0;
+    transition: all 500ms ease-in-out;
     transform-origin: 50% 150%;
-    transition: all 1000ms ease-out;
+    border: 4px solid;
 }
-.circle:nth-child(1) {
-    transform-origin: unset;
+
+.active .menu .circle {
+    opacity: 1;
 }
-.active .circle:nth-child(1) {
-    transform: scale(0.2);
-}
-.active .circle:nth-child(2) {
+
+.menu .circle:nth-child(1) {
     transform: translate(0, -100%) rotate(0deg);
+    border-color: #02ff94;
 }
-.active .circle:nth-child(3) {
+.menu .circle:nth-child(2) {
     transform: translate(0, -100%) rotate(72deg);
+    border-color: #ff4621;
 }
-.active .circle:nth-child(4) {
+.menu .circle:nth-child(3) {
     transform: translate(0, -100%) rotate(144deg);
+    border-color: #01ffb8;
 }
-.active .circle:nth-child(5) {
+.menu .circle:nth-child(4) {
     transform: translate(0, -100%) rotate(216deg);
+    border-color: #fed24d;
 }
-.active .circle:nth-child(6) {
+.menu .circle:nth-child(5) {
     transform: translate(0, -100%) rotate(288deg);
+    border-color: #d03bc0;
 }

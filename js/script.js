@@ -47,3 +47,7 @@ $('.pad').on(touchstartOrMousedown, function() {
 $('html').on(touchendOrMouseup, function() {
     $('.pad').removeClass('pressed');
 });
+
+$('.circle-wrap').on(touchstartOrMousedown, function() {
+    $(this).toggleClass('active');
+});

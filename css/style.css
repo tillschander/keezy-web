@@ -106,6 +106,7 @@ body {
     transition: all 500ms ease-in-out;
     transform-origin: 50% 150%;
     border: 4px solid;
+    background: no-repeat center center / 40%;
 }
 
 .active .menu .circle {
@@ -113,22 +114,27 @@ body {
 }
 
 .menu .circle:nth-child(1) {
-    transform: translate(0, -100%) rotate(0deg);
+    transform: translate(0, -100%);
     border-color: #02ff94;
+    background-image: url('../img/plus.svg');
 }
 .menu .circle:nth-child(2) {
-    transform: translate(0, -100%) rotate(72deg);
+    transform: translate(95%, -31%);
     border-color: #ff4621;
+    background-image: url('../img/close.svg');
 }
 .menu .circle:nth-child(3) {
-    transform: translate(0, -100%) rotate(144deg);
+    transform: translate(59%, 81%);
     border-color: #01ffb8;
+    background-image: url('../img/cog.svg');
 }
 .menu .circle:nth-child(4) {
-    transform: translate(0, -100%) rotate(216deg);
+    transform: translate(-59%, 81%);
     border-color: #fed24d;
+    background-image: url('../img/menu.svg');
 }
 .menu .circle:nth-child(5) {
-    transform: translate(0, -100%) rotate(288deg);
+    transform: translate(-95%, -31%);
     border-color: #d03bc0;
+    background-image: url('../img/undo.svg');
 }

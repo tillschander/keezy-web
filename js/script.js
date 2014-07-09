@@ -7,7 +7,14 @@ var circleTimeoutID;
 var bufferLoader = new BufferLoader(
     context,
     [
-      'media/sample1.mp3'
+      'media/1.wav',
+      'media/2.wav',
+      'media/3.wav',
+      'media/4.wav',
+      'media/5.wav',
+      'media/6.wav',
+      'media/7.wav',
+      'media/8.wav',
     ],
     finishedLoading
   );
@@ -41,7 +48,7 @@ function showCircle() {
 $('.pad').on(touchstartOrMousedown, function() {
     $(this).addClass('pressed');
     hideCircle();
-    playSound(0);
+    playSound($(this).index());
 });
 
 $('html').on(touchendOrMouseup, function() {

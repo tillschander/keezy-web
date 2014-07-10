@@ -47,8 +47,12 @@ function showCircle() {
 
 $('.pad').on(touchstartOrMousedown, function() {
     $(this).addClass('pressed');
-    hideCircle();
-    playSound($(this).index());
+    if($('.board').hasClass('delete')) {
+       $(this).addClass('empty'); 
+    } else {
+        hideCircle();
+        playSound($(this).index());
+    }
 });
 
 $('html').on(touchendOrMouseup, function() {
@@ -61,7 +65,18 @@ $('.circle-wrap').on(touchstartOrMousedown, function() {
 
 $('.menu .circle').on(touchstartOrMousedown, function() {
     $(this).addClass('pressed active');
+});
+
+$('.menu .settings, .menu .boards').on(touchstartOrMousedown, function() {
     $('.overlay.' + $(this).attr('data-overlay')).addClass('active');
+});
+
+$('.menu .delete').on(touchstartOrMousedown, function() {
+    $('.board').addClass('delete');
+});
+
+$('.menu .add').on(touchstartOrMousedown, function() {
+    $('.pad').addClass('empty');
 });
 
 $('.close').on(touchstartOrMousedown, function() {
